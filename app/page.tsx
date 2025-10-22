@@ -1,25 +1,35 @@
-"use client"
+"use client";
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mic, Headphones, Radio, Sparkles, MapPin, Phone, Mail, Camera, Music } from "lucide-react"
-import { useRef, useState } from "react"
-import { StudioLogo } from "@/components/studio-logo"
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Mic,
+  Headphones,
+  Radio,
+  Sparkles,
+  MapPin,
+  Phone,
+  Mail,
+  Camera,
+  Music,
+} from "lucide-react";
+import { useRef, useState } from "react";
+import { StudioLogo } from "@/components/studio-logo";
 
 export default function Studio634() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
-  })
+  });
 
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
-  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95])
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
 
-  const [selectedImage, setSelectedImage] = useState<number | null>(null)
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const galleryImages = [
     {
@@ -47,10 +57,13 @@ export default function Studio634() {
       alt: "Studio 634 - Emagine More Podcast Studio Entrance",
       title: "Creative Space",
     },
-  ]
+  ];
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-background text-foreground">
+    <div
+      ref={containerRef}
+      className="min-h-screen bg-background text-foreground"
+    >
       {/* Navigation */}
       <motion.nav
         initial={{ y: -100 }}
@@ -59,25 +72,47 @@ export default function Studio634() {
         className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border"
       >
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
             <StudioLogo />
           </motion.div>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              href="#features"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
               Features
             </a>
-            <a href="#gallery" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              href="#gallery"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
               Gallery
             </a>
-            <a href="#rates" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              href="#rates"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
               Rates
             </a>
-            <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              href="#contact"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
               Contact
             </a>
           </div>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Book Now</Button>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              Book Now
+            </Button>
           </motion.div>
         </div>
       </motion.nav>
@@ -97,7 +132,11 @@ export default function Studio634() {
               "radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.3) 0%, transparent 50%)",
             ],
           }}
-          transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+          transition={{
+            duration: 10,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "linear",
+          }}
           className="absolute inset-0 -z-10"
         />
 
@@ -135,8 +174,9 @@ export default function Studio634() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            Whether you're creating a podcast, conducting interviews, or producing high-quality audio content, we have
-            everything you need to bring your vision to life.
+            Whether you're creating a podcast, conducting interviews, or
+            producing high-quality audio content, we have everything you need to
+            bring your vision to life.
           </motion.p>
 
           <motion.div
@@ -145,7 +185,10 @@ export default function Studio634() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6"
+            >
               Book Your Session
             </Button>
             <Button
@@ -168,10 +211,16 @@ export default function Studio634() {
               transition={{ duration: 0.3 }}
               className="relative overflow-hidden rounded-2xl border border-border shadow-2xl"
             >
-              <img src="/images/studio-4.jpeg" alt="Studio 634 Interior" className="w-full h-80 object-cover" />
+              <img
+                src="/images/studio-4.jpeg"
+                alt="Studio 634 Interior"
+                className="w-full h-80 object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-sm font-semibold text-foreground">Professional Setup</p>
+                <p className="text-sm font-semibold text-foreground">
+                  Professional Setup
+                </p>
               </div>
             </motion.div>
             <motion.div
@@ -179,10 +228,16 @@ export default function Studio634() {
               transition={{ duration: 0.3 }}
               className="relative overflow-hidden rounded-2xl border border-border shadow-2xl"
             >
-              <img src="/images/studio-5.jpeg" alt="Studio 634 Recording" className="w-full h-80 object-cover" />
+              <img
+                src="/images/studio-5.jpeg"
+                alt="Studio 634 Recording"
+                className="w-full h-80 object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-sm font-semibold text-foreground">Live Recording Sessions</p>
+                <p className="text-sm font-semibold text-foreground">
+                  Live Recording Sessions
+                </p>
               </div>
             </motion.div>
             <motion.div
@@ -190,10 +245,16 @@ export default function Studio634() {
               transition={{ duration: 0.3 }}
               className="relative overflow-hidden rounded-2xl border border-border shadow-2xl"
             >
-              <img src="/images/studio-3.jpeg" alt="Studio 634 Lounge" className="w-full h-80 object-cover" />
+              <img
+                src="/images/studio-3.jpeg"
+                alt="Studio 634 Lounge"
+                className="w-full h-80 object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-sm font-semibold text-foreground">Comfortable Environment</p>
+                <p className="text-sm font-semibold text-foreground">
+                  Comfortable Environment
+                </p>
               </div>
             </motion.div>
           </motion.div>
@@ -233,7 +294,8 @@ export default function Studio634() {
               </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Experience professional recording with state-of-the-art equipment and expert support
+              Experience professional recording with state-of-the-art equipment
+              and expert support
             </p>
           </motion.div>
 
@@ -269,13 +331,21 @@ export default function Studio634() {
                 transition={{ duration: 0.6, delay: feature.delay }}
               >
                 <Card className="p-8 h-full bg-card border-border hover:border-primary transition-all duration-300 group">
-                  <motion.div whileHover={{ scale: 1.1, rotate: 5 }} transition={{ duration: 0.3 }} className="mb-6">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                    className="mb-6"
+                  >
                     <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <feature.icon className="w-8 h-8 text-primary" />
                     </div>
                   </motion.div>
-                  <h3 className="text-2xl font-bold mb-4 text-balance">{feature.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                  <h3 className="text-2xl font-bold mb-4 text-balance">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
                 </Card>
               </motion.div>
             ))}
@@ -287,7 +357,8 @@ export default function Studio634() {
         <motion.div
           className="absolute inset-0 -z-10"
           style={{
-            background: "radial-gradient(circle at 30% 50%, rgba(251, 146, 60, 0.15) 0%, transparent 60%)",
+            background:
+              "radial-gradient(circle at 30% 50%, rgba(251, 146, 60, 0.15) 0%, transparent 60%)",
           }}
         />
         <div className="container mx-auto px-4">
@@ -300,10 +371,13 @@ export default function Studio634() {
           >
             <h2 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
               Explore Our{" "}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Studio</span>
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Studio
+              </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Take a virtual tour of our professional recording spaces and state-of-the-art facilities
+              Take a virtual tour of our professional recording spaces and
+              state-of-the-art facilities
             </p>
           </motion.div>
 
@@ -335,7 +409,9 @@ export default function Studio634() {
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 + 0.3 }}
                 >
-                  <h3 className="text-xl font-bold text-foreground mb-2">{image.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-2">
+                    {image.title}
+                  </h3>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Camera className="w-4 h-4" />
                     <span>View Details</span>
@@ -379,8 +455,12 @@ export default function Studio634() {
                   className="w-full h-auto rounded-2xl border border-border shadow-2xl"
                 />
                 <div className="mt-6 text-center">
-                  <h3 className="text-2xl font-bold mb-2">{galleryImages[selectedImage].title}</h3>
-                  <p className="text-muted-foreground">{galleryImages[selectedImage].alt}</p>
+                  <h3 className="text-2xl font-bold mb-2">
+                    {galleryImages[selectedImage].title}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    {galleryImages[selectedImage].alt}
+                  </p>
                 </div>
               </motion.div>
             </motion.div>
@@ -393,7 +473,8 @@ export default function Studio634() {
         <motion.div
           className="absolute inset-0 -z-10"
           style={{
-            background: "radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 70%)",
           }}
         />
         <div className="container mx-auto px-4">
@@ -410,8 +491,8 @@ export default function Studio634() {
               </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              We believe that high-quality recording should be accessible. Contact us for competitive rates tailored to
-              your project needs.
+              We believe that high-quality recording should be accessible.
+              Contact us for competitive rates tailored to your project needs.
             </p>
           </motion.div>
 
@@ -427,11 +508,14 @@ export default function Studio634() {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-4">
                     <Sparkles className="w-8 h-8 text-secondary" />
-                    <h3 className="text-3xl font-bold">Professional Packages</h3>
+                    <h3 className="text-3xl font-bold">
+                      Professional Packages
+                    </h3>
                   </div>
                   <p className="text-muted-foreground text-lg leading-relaxed">
-                    Whether you're a seasoned professional or just starting, we have packages that fit every budget. Get
-                    in touch to discuss your project and receive a custom quote.
+                    Whether you're a seasoned professional or just starting, we
+                    have packages that fit every budget. Get in touch to discuss
+                    your project and receive a custom quote.
                   </p>
                 </div>
                 <Button
@@ -463,7 +547,8 @@ export default function Studio634() {
               </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Ready to elevate your audio projects? Get in touch with us to schedule your recording session.
+              Ready to elevate your audio projects? Get in touch with us to
+              schedule your recording session.
             </p>
           </motion.div>
 
@@ -479,13 +564,23 @@ export default function Studio634() {
                 <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
                 <form className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Name
                     </label>
-                    <Input id="name" placeholder="Your name" className="bg-background border-border" />
+                    <Input
+                      id="name"
+                      placeholder="Your name"
+                      className="bg-background border-border"
+                    />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Email
                     </label>
                     <Input
@@ -496,13 +591,24 @@ export default function Studio634() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Phone
                     </label>
-                    <Input id="phone" type="tel" placeholder="(555) 123-4567" className="bg-background border-border" />
+                    <Input
+                      id="phone"
+                      type="tel"
+                      placeholder="(214) 207-4324"
+                      className="bg-background border-border"
+                    />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Message
                     </label>
                     <Textarea
@@ -553,7 +659,7 @@ export default function Studio634() {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Phone</h4>
-                      <p className="text-muted-foreground">(555) 634-STUD</p>
+                      <p className="text-muted-foreground">(214) 207-4324</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -562,7 +668,9 @@ export default function Studio634() {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Email</h4>
-                      <p className="text-muted-foreground">info@studio634.com</p>
+                      <p className="text-muted-foreground">
+                        info@studio634.com
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -586,12 +694,20 @@ export default function Studio634() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <StudioLogo />
-            <p className="text-muted-foreground text-center">© 2025 Studio 634. All rights reserved.</p>
+            <p className="text-muted-foreground text-center">
+              © 2025 Studio 634. All rights reserved.
+            </p>
             <div className="flex gap-6">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 Privacy
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 Terms
               </a>
             </div>
@@ -599,5 +715,5 @@ export default function Studio634() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
